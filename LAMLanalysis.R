@@ -1,0 +1,12 @@
+source("https://bioconductor.org/biocLite.R")
+biocLite("maftools")
+require("maftools")
+aml_clin = system.file('extdata', 'clinical.tsv', package = 'maftools',verbose=TRUE)
+aml <- read.maf(maf ="/Users/admin/Documents/Genomesci/LAML/AML1/genome.wustl.edu_LAML.IlluminaHiSeq_DNASeq_automated.1.1.0.somatic.maf", clinicalData = "/Users/admin/Documents/practice/finalannotation4.tsv")
+#laml <- read.maf(maf ="/Users/admin/Documents/Genome sci/LAML/AML/genome.wustl.edu_LAML.IlluminaHiSeq_DNASeq_automated.1.1.0.somatic.maf")
+
+x <- getSampleSummary(aml)
+getGeneSummary(aml)
+getClinicalData(aml)
+getFields(aml)
+getFields(aml$Tumor_Sample_Barcode)
